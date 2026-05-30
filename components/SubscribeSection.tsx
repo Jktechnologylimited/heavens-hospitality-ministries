@@ -58,7 +58,7 @@ export default function SubscribeSection() {
             className="py-8 px-6 rounded text-center"
             style={{ background: 'rgba(201,168,76,0.1)', border: '1px solid rgba(201,168,76,0.3)' }}
           >
-            <div style={{ color: '#c9a84c', fontSize: '32px', marginBottom: '12px' }}>✦</div>
+            <div style={{ color: '#c9a84c', fontSize: '32px', marginBottom: '12px' }}></div>
             <p className="font-serif text-white" style={{ fontSize: '20px' }}>{msg}</p>
           </div>
         ) : (

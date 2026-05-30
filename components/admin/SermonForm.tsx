@@ -40,8 +40,8 @@ export default function SermonForm({ initial, id }: { initial?: FormData; id?: n
     finally { setSaving(false); }
   };
 
-  const inputStyle = { width:'100%', background:'rgba(255,255,255,0.05)', border:'1px solid rgba(212,175,55,0.2)', borderRadius:2, padding:'12px 16px', color:'white', fontFamily:'Cormorant Garamond,serif', fontSize:17, outline:'none' };
-  const labelStyle: React.CSSProperties = { fontFamily:'Montserrat,sans-serif', fontSize:10, letterSpacing:2, color:'rgba(212,175,55,0.8)', textTransform:'uppercase', display:'block', marginBottom:8 };
+  const inputStyle = { width:'100%', background:'rgba(255,255,255,0.05)', border:'1px solid rgba(232,76,14,0.2)', borderRadius:2, padding:'12px 16px', color:'white', fontFamily:'Cormorant Garamond,serif', fontSize:17, outline:'none' };
+  const labelStyle: React.CSSProperties = { fontFamily:'Montserrat,sans-serif', fontSize:10, letterSpacing:2, color:'rgba(232,76,14,0.8)', textTransform:'uppercase', display:'block', marginBottom:8 };
 
   return (
     <form onSubmit={handleSubmit} style={{ maxWidth:800 }}>
@@ -106,7 +106,7 @@ export default function SermonForm({ initial, id }: { initial?: FormData; id?: n
       {error && <p style={{ fontFamily:'Montserrat,sans-serif', fontSize:12, color:'#ff8a80', marginBottom:16 }}>{error}</p>}
       <div style={{ display:'flex', gap:14 }}>
         <button type="submit" disabled={saving} className="btn-primary">
-          {saving ? 'Saving…' : id ? '💾 Update Sermon' : '✅ Publish Sermon'}
+          {saving ? 'Saving…' : id ? 'Update Sermon' : 'Publish Sermon'}
         </button>
         <button type="button" onClick={() => router.push('/admin/sermons')} className="btn-outline">Cancel</button>
       </div>

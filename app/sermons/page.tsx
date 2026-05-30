@@ -35,9 +35,9 @@ export default function SermonsPage() {
     <>
       <Navbar />
       <main>
-        <div style={{ background: 'linear-gradient(160deg, var(--deep-brown), var(--mid-brown))', padding: '140px 24px 80px', textAlign: 'center' }}>
-          <div className="section-label" style={{ marginBottom: 16 }}>✦ The Word ✦</div>
-          <div style={{ width: 60, height: 1, background: 'linear-gradient(90deg, transparent, #d4af37, transparent)', margin: '0 auto 24px' }} />
+        <div style={{ background: 'linear-gradient(160deg, var(--navy), var(--navy-mid))', padding: '140px 24px 80px', textAlign: 'center' }}>
+          <div className="section-label" style={{ marginBottom: 16 }}>The Word</div>
+          <div style={{ width: 60, height: 1, background: 'linear-gradient(90deg, transparent, var(--orange), transparent)', margin: '0 auto 24px' }} />
           <h1 style={{ fontFamily: 'Playfair Display, serif', fontSize: 'clamp(42px, 6vw, 72px)', color: 'white', marginBottom: 20 }}>
             Sermons & <span className="gold-text">Teachings</span>
           </h1>
@@ -46,14 +46,14 @@ export default function SermonsPage() {
           </p>
         </div>
 
-        <div style={{ background: 'var(--cream)', padding: '80px 24px' }}>
+        <div style={{ background: 'var(--off-white)', padding: '80px 24px' }}>
           <div style={{ maxWidth: 1100, margin: '0 auto' }}>
             {loading ? (
               <div style={{ textAlign: 'center', padding: '60px 0', color: 'var(--text-light)', fontFamily: 'Cormorant Garamond, serif', fontSize: 20, fontStyle: 'italic' }}>Loading sermons…</div>
             ) : sermons.length === 0 ? (
               <div style={{ textAlign: 'center', padding: '80px 0' }}>
-                <div style={{ fontSize: 48, marginBottom: 16 }}>🎙️</div>
-                <h3 style={{ fontFamily: 'Playfair Display, serif', fontSize: 28, color: 'var(--deep-brown)', marginBottom: 12 }}>Coming Soon</h3>
+                <div style={{ fontSize: 48, marginBottom: 16 }}></div>
+                <h3 style={{ fontFamily: 'Playfair Display, serif', fontSize: 28, color: 'var(--navy)', marginBottom: 12 }}>Coming Soon</h3>
                 <p style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: 18, color: 'var(--text-light)', fontStyle: 'italic' }}>Sermons will be posted here soon. Subscribe to be notified!</p>
                 <Link href="/#newsletter" className="btn-primary" style={{ marginTop: 24, display: 'inline-block' }}>Subscribe</Link>
               </div>
@@ -63,20 +63,20 @@ export default function SermonsPage() {
                   {sermons.map(s => (
                     <Link key={s.id} href={`/sermons/${s.id}`} style={{ textDecoration: 'none' }}>
                       <div className="card-ministry" style={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
-                        <div style={{ background: 'linear-gradient(135deg, var(--deep-brown), var(--warm-brown))', height: 180, display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative', overflow: 'hidden' }}>
-                          <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(circle at center, rgba(212,175,55,0.15), transparent)' }} />
-                          <div style={{ width: 56, height: 56, background: 'rgba(212,175,55,0.85)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 20, color: 'var(--deep-brown)', paddingLeft: 4 }}>▶</div>
-                          {s.series && <div style={{ position: 'absolute', top: 12, left: 12, background: 'rgba(212,175,55,0.9)', color: 'var(--deep-brown)', fontFamily: 'Montserrat, sans-serif', fontSize: 9, fontWeight: 700, letterSpacing: 1, textTransform: 'uppercase', padding: '4px 10px', borderRadius: 2 }}>{s.series}</div>}
+                        <div style={{ background: 'linear-gradient(135deg, var(--navy), var(--navy-light))', height: 180, display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative', overflow: 'hidden' }}>
+                          <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(circle at center, rgba(232,76,14,0.15), transparent)' }} />
+                          <div style={{ width: 56, height: 56, background: 'rgba(232,76,14,0.85)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 20, color: 'var(--navy)', paddingLeft: 4 }}></div>
+                          {s.series && <div style={{ position: 'absolute', top: 12, left: 12, background: 'rgba(232,76,14,0.9)', color: 'var(--navy)', fontFamily: 'Montserrat, sans-serif', fontSize: 9, fontWeight: 700, letterSpacing: 1, textTransform: 'uppercase', padding: '4px 10px', borderRadius: 2 }}>{s.series}</div>}
                           {s.duration && <div style={{ position: 'absolute', bottom: 12, right: 12, background: 'rgba(0,0,0,0.6)', color: 'white', fontFamily: 'Montserrat, sans-serif', fontSize: 10, padding: '3px 8px', borderRadius: 2 }}>{s.duration}</div>}
                         </div>
                         <div style={{ padding: '24px', flex: 1 }}>
-                          {s.scripture && <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 10, color: 'var(--gold)', letterSpacing: 1.5, marginBottom: 10, textTransform: 'uppercase' }}>📖 {s.scripture}</div>}
-                          <h3 style={{ fontFamily: 'Playfair Display, serif', fontSize: 20, marginBottom: 10, lineHeight: 1.3, color: 'var(--deep-brown)' }}>{s.title}</h3>
+                          {s.scripture && <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 10, color: 'var(--orange)', letterSpacing: 1.5, marginBottom: 10, textTransform: 'uppercase' }}> {s.scripture}</div>}
+                          <h3 style={{ fontFamily: 'Playfair Display, serif', fontSize: 20, marginBottom: 10, lineHeight: 1.3, color: 'var(--navy)' }}>{s.title}</h3>
                           <p style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: 16, color: 'var(--text-light)', lineHeight: 1.7 }}>{s.description?.slice(0, 120)}…</p>
                         </div>
-                        <div style={{ padding: '14px 24px', borderTop: '1px solid rgba(212,175,55,0.1)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                        <div style={{ padding: '14px 24px', borderTop: '1px solid rgba(232,76,14,0.1)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                           <span style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 11, color: 'var(--text-light)' }}>{s.speaker}</span>
-                          <span style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 10, letterSpacing: 2, color: 'var(--gold)', textTransform: 'uppercase' }}>Listen →</span>
+                          <span style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 10, letterSpacing: 2, color: 'var(--orange)', textTransform: 'uppercase' }}>Listen →</span>
                         </div>
                       </div>
                     </Link>

@@ -15,7 +15,7 @@ export default function EditDevotion() {
   }, [params.id]);
 
   return (
-    <AdminLayout title="✏️ Edit Devotion">
+    <AdminLayout title="Edit Devotion">
       {devotion ? (
         <DevotionForm initial={devotion} id={Number(params.id)} />
       ) : (

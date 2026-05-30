@@ -1,75 +1,156 @@
 'use client';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Footer() {
   return (
-    <footer style={{ background: '#0d0500', borderTop: '1px solid rgba(212,175,55,0.2)', color: 'rgba(255,255,255,0.7)', paddingTop: 64 }}>
-      <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 24px', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 48, paddingBottom: 48 }}>
+    <footer style={{ background: '#060e1a', borderTop: '1px solid rgba(232,76,14,0.15)', color: 'rgba(255,255,255,0.65)', paddingTop: 'clamp(40px,8vw,64px)' }}>
+      <div style={{
+        maxWidth: 1200, margin: '0 auto',
+        padding: '0 clamp(16px,5vw,24px) clamp(40px,8vw,48px)',
+        display: 'grid',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%,200px),1fr))',
+        gap: 'clamp(32px,5vw,48px)',
+      }}>
+
         {/* Brand */}
         <div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 20 }}>
-            <div style={{ width: 42, height: 42, background: 'linear-gradient(135deg,#a07820,#d4af37)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 20 }}>✝</div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 18 }}>
+            <Image src="/logo.png" alt="Heaven's Hospitality Ministries" width={44} height={44} style={{ objectFit: 'contain', flexShrink: 0 }} />
             <div>
-              <div style={{ fontFamily: 'Playfair Display, serif', color: '#d4af37', fontSize: 18, fontWeight: 700 }}>Heaven's Hospitality</div>
-              <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 9, letterSpacing: 3, textTransform: 'uppercase', color: 'rgba(255,255,255,0.4)' }}>Ministries</div>
+              <div style={{ fontFamily: 'Playfair Display,serif', color: 'white', fontSize: 'clamp(13px,2vw,16px)', fontWeight: 700 }}>Heaven's Hospitality</div>
+              <div style={{ fontFamily: 'Montserrat,sans-serif', fontSize: 8, letterSpacing: 2, textTransform: 'uppercase', color: 'rgba(255,255,255,0.35)' }}>Ministries</div>
             </div>
           </div>
-          <p style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: 16, lineHeight: 1.8, color: 'rgba(255,255,255,0.6)', marginBottom: 20 }}>
-            Spreading the warmth, love, and hospitality of Heaven to every nation, tribe, and tongue.
+          <p style={{ fontFamily: 'Cormorant Garamond,serif', fontSize: 'clamp(14px,1.8vw,16px)', lineHeight: 1.8, color: 'rgba(255,255,255,0.5)', marginBottom: 20 }}>
+            Spreading the love and hospitality of Heaven to every nation, tribe, and tongue.
           </p>
-          <div style={{ display: 'flex', gap: 12 }}>
-            <a href="https://www.tiktok.com/@heavenshospitality" target="_blank" rel="noopener" style={{ width: 36, height: 36, background: 'rgba(212,175,55,0.1)', border: '1px solid rgba(212,175,55,0.3)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#d4af37', fontSize: 16, transition: 'all 0.2s' }}>
-              𝕋
+          {/* Socials — TikTok + YouTube only */}
+          <div style={{ display: 'flex', gap: 10 }}>
+            <a
+              href="https://www.tiktok.com/@heavenshospitality"
+              target="_blank" rel="noopener" aria-label="TikTok"
+              style={{ width: 36, height: 36, background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(232,76,14,0.2)', borderRadius: 6, display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontFamily: 'Montserrat,sans-serif', fontSize: 11, fontWeight: 900, transition: 'all 0.2s', textDecoration: 'none' }}
+              onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = 'rgba(255,255,255,0.12)'; }}
+              onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = 'rgba(255,255,255,0.06)'; }}
+            >
+              T
             </a>
-            <a href="#" style={{ width: 36, height: 36, background: 'rgba(212,175,55,0.1)', border: '1px solid rgba(212,175,55,0.3)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#d4af37', fontSize: 14, transition: 'all 0.2s' }}>
-              f
-            </a>
-            <a href="#" style={{ width: 36, height: 36, background: 'rgba(212,175,55,0.1)', border: '1px solid rgba(212,175,55,0.3)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#d4af37', fontSize: 14, transition: 'all 0.2s' }}>
-              ▶
+            <a
+              href="https://www.youtube.com/@HeveansHospitality"
+              target="_blank" rel="noopener" aria-label="YouTube"
+              style={{ width: 36, height: 36, background: 'rgba(255,0,0,0.12)', border: '1px solid rgba(255,0,0,0.2)', borderRadius: 6, display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#ff4444', fontFamily: 'Montserrat,sans-serif', fontSize: 11, fontWeight: 900, transition: 'all 0.2s', textDecoration: 'none' }}
+              onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = 'rgba(255,0,0,0.2)'; }}
+              onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = 'rgba(255,0,0,0.12)'; }}
+            >
+              Y
             </a>
           </div>
         </div>
 
-        {/* Quick Links */}
+        {/* Ministry */}
         <div>
-          <h4 style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 11, letterSpacing: 3, textTransform: 'uppercase', color: '#d4af37', marginBottom: 24 }}>Ministry</h4>
-          {[['/', 'Home'],['/#about','About Us'],['/devotions','Daily Devotions'],['/sermons','Sermons'],['/sermons?series=all','Sermon Series']].map(([href, label]) => (
-            <Link key={href} href={href} style={{ display: 'block', fontFamily: 'Cormorant Garamond, serif', fontSize: 16, color: 'rgba(255,255,255,0.6)', marginBottom: 10, transition: 'color 0.2s' }}
-            onMouseEnter={e => (e.currentTarget.style.color = '#d4af37')}
-            onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.6)')}
+          <h4 style={{ fontFamily: 'Montserrat,sans-serif', fontSize: 10, letterSpacing: 2.5, textTransform: 'uppercase', color: 'var(--orange)', marginBottom: 18 }}>Ministry</h4>
+          {[
+            ['/', 'Home'],
+            ['/#about', 'About Us'],
+            ['/devotions', 'Daily Devotions'],
+            ['/sermons', 'Sermons'],
+            ['/events', 'Events'],
+            ['/training', 'Free Training'],
+            ['/book', 'Free Book'],
+            ['/miracles', 'Testimonies'],
+          ].map(([href, label]) => (
+            <Link
+              key={href} href={href}
+              style={{ display: 'block', fontFamily: 'Cormorant Garamond,serif', fontSize: 'clamp(14px,1.8vw,16px)', color: 'rgba(255,255,255,0.5)', marginBottom: 9, transition: 'color 0.2s' }}
+              onMouseEnter={e => (e.currentTarget.style.color = 'var(--orange)')}
+              onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.5)')}
             >{label}</Link>
           ))}
         </div>
 
         {/* Connect */}
         <div>
-          <h4 style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 11, letterSpacing: 3, textTransform: 'uppercase', color: '#d4af37', marginBottom: 24 }}>Connect</h4>
-          {[['/#contact','Contact Us'],['/#newsletter','Subscribe'],['/#prayer','Prayer Requests'],['/#give','Give / Support']].map(([href, label]) => (
-            <Link key={href} href={href} style={{ display: 'block', fontFamily: 'Cormorant Garamond, serif', fontSize: 16, color: 'rgba(255,255,255,0.6)', marginBottom: 10, transition: 'color 0.2s' }}
-            onMouseEnter={e => (e.currentTarget.style.color = '#d4af37')}
-            onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.6)')}
+          <h4 style={{ fontFamily: 'Montserrat,sans-serif', fontSize: 10, letterSpacing: 2.5, textTransform: 'uppercase', color: 'var(--orange)', marginBottom: 18 }}>Connect</h4>
+          {[
+            ['/#contact', 'Contact Us'],
+            ['/#newsletter', 'Subscribe'],
+            ['/#prayer', 'Prayer Requests'],
+            ['/#give', 'Give / Support'],
+          ].map(([href, label]) => (
+            <Link
+              key={href} href={href}
+              style={{ display: 'block', fontFamily: 'Cormorant Garamond,serif', fontSize: 'clamp(14px,1.8vw,16px)', color: 'rgba(255,255,255,0.5)', marginBottom: 9, transition: 'color 0.2s' }}
+              onMouseEnter={e => (e.currentTarget.style.color = 'var(--orange)')}
+              onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.5)')}
             >{label}</Link>
           ))}
+          <div style={{ marginTop: 20 }}>
+            <a href="https://wa.me/27763511196" target="_blank" rel="noopener" style={{ fontFamily: 'Montserrat,sans-serif', fontSize: 11, color: '#25D366', letterSpacing: 0.5, display: 'block', marginBottom: 8, textDecoration: 'none' }}>
+              WhatsApp: +27 763 511 196
+            </a>
+            <a href="tel:+2349138688465" style={{ fontFamily: 'Montserrat,sans-serif', fontSize: 11, color: 'rgba(255,255,255,0.45)', letterSpacing: 0.5, display: 'block', textDecoration: 'none' }}>
+              Call: +234 913 868 8465
+            </a>
+          </div>
         </div>
 
         {/* Scripture */}
         <div>
-          <h4 style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 11, letterSpacing: 3, textTransform: 'uppercase', color: '#d4af37', marginBottom: 24 }}>Our Foundation</h4>
-          <blockquote style={{ borderLeft: '2px solid #d4af37', paddingLeft: 16, fontFamily: 'Cormorant Garamond, serif', fontStyle: 'italic', fontSize: 17, color: 'rgba(255,255,255,0.7)', lineHeight: 1.8 }}>
+          <h4 style={{ fontFamily: 'Montserrat,sans-serif', fontSize: 10, letterSpacing: 2.5, textTransform: 'uppercase', color: 'var(--orange)', marginBottom: 18 }}>Our Foundation</h4>
+          <blockquote style={{ borderLeft: '2px solid rgba(232,76,14,0.5)', paddingLeft: 16, fontFamily: 'Cormorant Garamond,serif', fontStyle: 'italic', fontSize: 'clamp(14px,1.8vw,17px)', color: 'rgba(255,255,255,0.6)', lineHeight: 1.8 }}>
             "For I was hungry and you gave me food, I was thirsty and you gave me drink, I was a stranger and you welcomed me."
           </blockquote>
-          <p style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 11, color: '#d4af37', marginTop: 12, letterSpacing: 1 }}>Matthew 25:35</p>
+          <p style={{ fontFamily: 'Montserrat,sans-serif', fontSize: 10, color: 'var(--orange)', marginTop: 12, letterSpacing: 1 }}>Matthew 25:35</p>
         </div>
       </div>
 
-      {/* Bottom bar */}
-      <div style={{ borderTop: '1px solid rgba(212,175,55,0.1)', padding: '20px 24px', display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: 12, maxWidth: 1200, margin: '0 auto' }}>
-        <p style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 12, color: 'rgba(255,255,255,0.4)', letterSpacing: 0.5 }}>
-          © {new Date().getFullYear()} Heaven's Hospitality Ministries. All rights reserved.
-        </p>
-        <Link href="/admin" style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 11, color: 'rgba(255,255,255,0.3)', letterSpacing: 1 }}>
-          Admin Portal
-        </Link>
+      {/* Developer credit bar */}
+      <div style={{ borderTop: '1px solid rgba(232,76,14,0.08)', background: 'rgba(0,0,0,0.3)', maxWidth: '100%' }}>
+        <div style={{ maxWidth: 1200, margin: '0 auto', padding: 'clamp(14px,2.5vw,20px) clamp(16px,5vw,24px)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 14 }}>
+          {/* Left: copyright + admin */}
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 'clamp(12px,3vw,24px)', alignItems: 'center' }}>
+            <p style={{ fontFamily: 'Montserrat,sans-serif', fontSize: 11, color: 'rgba(255,255,255,0.28)' }}>
+              © {new Date().getFullYear()} Heaven's Hospitality Ministries. All rights reserved.
+            </p>
+            <Link href="/admin" style={{ fontFamily: 'Montserrat,sans-serif', fontSize: 10, color: 'rgba(255,255,255,0.18)', letterSpacing: 0.5, textDecoration: 'none' }}>
+              Admin
+            </Link>
+          </div>
+
+          {/* Right: JKTL developer credit */}
+          <a
+            href="https://www.jktl.com.ng"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ display: 'flex', alignItems: 'center', gap: 10, textDecoration: 'none', opacity: 0.7, transition: 'opacity 0.2s' }}
+            onMouseEnter={e => (e.currentTarget.style.opacity = '1')}
+            onMouseLeave={e => (e.currentTarget.style.opacity = '0.7')}
+            title="Built by JK Technology Limited"
+          >
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }}>
+              <span style={{ fontFamily: 'Montserrat,sans-serif', fontSize: 9, letterSpacing: 1.5, color: 'rgba(255,255,255,0.35)', textTransform: 'uppercase' }}>JKTL V2 System</span>
+              <span style={{ fontFamily: 'Montserrat,sans-serif', fontSize: 9, color: 'rgba(255,255,255,0.25)' }}>Built by JK Technology Limited</span>
+            </div>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/images/jktl-logo.png"
+              alt="JK Technology Limited"
+              style={{ height: 28, width: 'auto', objectFit: 'contain', filter: 'brightness(0.8)' }}
+            />
+          </a>
+        </div>
+
+        {/* Support line */}
+        <div style={{ borderTop: '1px solid rgba(255,255,255,0.04)', padding: 'clamp(8px,1.5vw,10px) clamp(16px,5vw,24px)', textAlign: 'center', maxWidth: 1200, margin: '0 auto' }}>
+          <p style={{ fontFamily: 'Montserrat,sans-serif', fontSize: 10, color: 'rgba(255,255,255,0.2)', letterSpacing: 0.5 }}>
+            System support:{' '}
+            <a href="mailto:support@jktl.com.ng" style={{ color: 'rgba(100,150,255,0.45)', textDecoration: 'none' }}>
+              support@jktl.com.ng
+            </a>
+          </p>
+        </div>
       </div>
     </footer>
   );

@@ -19,10 +19,10 @@ export default function AdminSubscribers() {
   }, []);
 
   return (
-    <AdminLayout title="📧 Newsletter Subscribers">
+    <AdminLayout title=" Newsletter Subscribers">
       <div style={{ marginBottom:24 }}>
-        <div style={{ display:'inline-block', background:'rgba(212,175,55,0.12)', border:'1px solid rgba(212,175,55,0.3)', borderRadius:4, padding:'16px 24px' }}>
-          <div style={{ fontFamily:'Playfair Display,serif', fontSize:32, color:'#d4af37', fontWeight:700 }}>{subscribers.length}</div>
+        <div style={{ display:'inline-block', background:'rgba(232,76,14,0.12)', border:'1px solid rgba(232,76,14,0.3)', borderRadius:4, padding:'16px 24px' }}>
+          <div style={{ fontFamily:'Playfair Display,serif', fontSize:32, color:'var(--orange)', fontWeight:700 }}>{subscribers.length}</div>
           <div style={{ fontFamily:'Montserrat,sans-serif', fontSize:11, letterSpacing:1, color:'rgba(255,255,255,0.5)', textTransform:'uppercase' }}>Active Subscribers</div>
         </div>
       </div>
@@ -30,15 +30,15 @@ export default function AdminSubscribers() {
       {loading ? (
         <p style={{ color:'rgba(255,255,255,0.5)', fontFamily:'Cormorant Garamond,serif', fontSize:18, fontStyle:'italic' }}>Loading…</p>
       ) : subscribers.length === 0 ? (
-        <div style={{ textAlign:'center', padding:'60px 0', background:'rgba(255,255,255,0.02)', borderRadius:4, border:'1px dashed rgba(212,175,55,0.2)' }}>
-          <div style={{ fontSize:48, marginBottom:16 }}>📧</div>
+        <div style={{ textAlign:'center', padding:'60px 0', background:'rgba(255,255,255,0.02)', borderRadius:4, border:'1px dashed rgba(232,76,14,0.2)' }}>
+          <div style={{ fontSize:48, marginBottom:16 }}></div>
           <p style={{ fontFamily:'Cormorant Garamond,serif', fontSize:20, color:'rgba(255,255,255,0.5)', fontStyle:'italic' }}>No subscribers yet</p>
         </div>
       ) : (
-        <div style={{ background:'rgba(255,255,255,0.03)', border:'1px solid rgba(212,175,55,0.12)', borderRadius:4, overflow:'hidden' }}>
-          <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr 1fr', padding:'12px 20px', borderBottom:'1px solid rgba(212,175,55,0.12)', background:'rgba(212,175,55,0.05)' }}>
+        <div style={{ background:'rgba(255,255,255,0.03)', border:'1px solid rgba(232,76,14,0.12)', borderRadius:4, overflow:'hidden' }}>
+          <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr 1fr', padding:'12px 20px', borderBottom:'1px solid rgba(232,76,14,0.12)', background:'rgba(232,76,14,0.05)' }}>
             {['Name / Email', 'Subscribed', 'Status'].map(h => (
-              <span key={h} style={{ fontFamily:'Montserrat,sans-serif', fontSize:10, letterSpacing:2, color:'rgba(212,175,55,0.7)', textTransform:'uppercase' }}>{h}</span>
+              <span key={h} style={{ fontFamily:'Montserrat,sans-serif', fontSize:10, letterSpacing:2, color:'rgba(232,76,14,0.7)', textTransform:'uppercase' }}>{h}</span>
             ))}
           </div>
           {subscribers.map(s => (

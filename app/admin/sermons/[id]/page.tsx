@@ -10,7 +10,7 @@ export default function EditSermon() {
     fetch(`/api/sermons/${params.id}`).then(r=>r.json()).then(d=>setSermon(d.sermon));
   }, [params.id]);
   return (
-    <AdminLayout title="✏️ Edit Sermon">
+    <AdminLayout title="Edit Sermon">
       {sermon ? <SermonForm initial={sermon} id={Number(params.id)} /> : <p style={{ color:'rgba(255,255,255,0.5)', fontFamily:'Cormorant Garamond,serif', fontStyle:'italic', fontSize:18 }}>Loading…</p>}
     </AdminLayout>
   );
