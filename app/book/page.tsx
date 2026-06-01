@@ -163,9 +163,18 @@ export default function BookPage() {
                   </p>
                   <a
                     href="/book/in-the-fullness-of-his-blessings.pdf"
-                    download="In-the-Fullness-of-His-Blessings-Bob-Pepple.pdf"
+                    download="In-the-Fullness-of-His-Blessings-Bob-Edward-Pepple.pdf"
                     className="btn-primary"
                     style={{ display:'inline-flex', justifyContent:'center', padding:'16px 36px', fontSize:14, width:'100%', marginBottom:16 }}
+                    onClick={() => {
+                      // Force download by creating a temporary anchor
+                      const link = document.createElement('a');
+                      link.href = '/book/in-the-fullness-of-his-blessings.pdf';
+                      link.download = 'In-the-Fullness-of-His-Blessings-Bob-Edward-Pepple.pdf';
+                      document.body.appendChild(link);
+                      link.click();
+                      document.body.removeChild(link);
+                    }}
                   >
                     Download Free PDF
                   </a>
@@ -309,7 +318,7 @@ export default function BookPage() {
             </p>
             <a
               href="/book/in-the-fullness-of-his-blessings.pdf"
-              download="In-the-Fullness-of-His-Blessings-Bob-Pepple.pdf"
+              download="In-the-Fullness-of-His-Blessings-Bob-Edward-Pepple.pdf"
               className="btn-primary"
               style={{ display:'inline-flex', justifyContent:'center', padding:'clamp(14px,3vw,18px) clamp(28px,6vw,48px)', fontSize:'clamp(12px,2vw,15px)', marginBottom:16 }}
             >

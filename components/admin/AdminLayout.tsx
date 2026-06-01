@@ -16,6 +16,7 @@ const NAV = [
   ['/admin/subscribers', 'Subscribers'],
   ['/admin/prayers', 'Prayer Requests'],
   ['/admin/offerings', 'Offerings'],
+  ['/admin/settings', 'Settings'],
   ['/', 'View Website'],
 ];
 

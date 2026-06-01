@@ -1,4 +1,5 @@
 'use client';
+import { Mail } from 'lucide-react';
 import { useState } from 'react';
 
 export default function HomeNewsletter() {

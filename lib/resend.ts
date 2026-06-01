@@ -9,7 +9,7 @@ export async function sendNewsletterEmail(
 ) {
   try {
     const data = await resend.emails.send({
-      from: process.env.EMAIL_FROM || 'noreply@heavenshospitality.org',
+      from: process.env.EMAIL_FROM || 'noreply@mail.ibiz.name.ng',
       to,
       subject,
       html: htmlContent,
@@ -69,7 +69,7 @@ export async function sendDevotionEmail(
   const results = await Promise.allSettled(
     subscribers.map(email =>
       resend.emails.send({
-        from: process.env.EMAIL_FROM || 'noreply@heavenshospitality.org',
+        from: process.env.EMAIL_FROM || 'noreply@mail.ibiz.name.ng',
         to: email,
         subject: `Daily Devotion: ${devotion.title}`,
         html,
@@ -119,7 +119,7 @@ export async function sendWelcomeEmail(email: string, name: string) {
   `;
 
   return resend.emails.send({
-    from: process.env.EMAIL_FROM || 'noreply@heavenshospitality.org',
+    from: process.env.EMAIL_FROM || 'noreply@mail.ibiz.name.ng',
     to: email,
     subject: "Welcome to Heaven's Hospitality Ministries!",
     html,

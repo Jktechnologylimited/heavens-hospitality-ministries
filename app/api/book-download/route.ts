@@ -5,22 +5,22 @@ import { sendWelcomeEmail } from '@/lib/resend';
 export async function POST(req: NextRequest) {
   const { name, email, phone } = await req.json();
 
-  // All fields optional — book is free
+  // Save subscriber if email provided (all optional)
   if (email) {
     try {
       const existing = await sql`SELECT id FROM newsletter_subscribers WHERE email = ${email}`;
       if (existing.length === 0) {
         await sql`INSERT INTO newsletter_subscribers (email, name) VALUES (${email}, ${name || ''})`;
-        await sendWelcomeEmail(email, name || 'Friend');
+        try { await sendWelcomeEmail(email, name || 'Friend'); } catch {}
       }
     } catch (e) {
       console.error('Subscriber error:', e);
     }
   }
 
+  // Always return the hardcoded PDF path — it lives in /public/book/
   return NextResponse.json({
     success: true,
-    // Replace with real download URL once book file is uploaded
-    downloadUrl: process.env.BOOK_DOWNLOAD_URL || '/book/download-placeholder',
+    downloadUrl: '/book/in-the-fullness-of-his-blessings.pdf',
   });
 }

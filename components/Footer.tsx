@@ -1,6 +1,11 @@
 'use client';
 import Link from 'next/link';
 import Image from 'next/image';
+import { Mail, Phone, MessageCircle, PlayCircle } from 'lucide-react';
+
+function TikTokIcon({ size = 16 }: { size?: number }) {
+  return <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.77a4.85 4.85 0 01-1.01-.08z"/></svg>;
+}
 
 export default function Footer() {
   return (
@@ -87,11 +92,14 @@ export default function Footer() {
             >{label}</Link>
           ))}
           <div style={{ marginTop: 20 }}>
-            <a href="https://wa.me/27763511196" target="_blank" rel="noopener" style={{ fontFamily: 'Montserrat,sans-serif', fontSize: 11, color: '#25D366', letterSpacing: 0.5, display: 'block', marginBottom: 8, textDecoration: 'none' }}>
-              WhatsApp: +27 763 511 196
+            <a href="mailto:hospitalityheavens@gmail.com" style={{ fontFamily: 'Montserrat,sans-serif', fontSize: 11, color: 'rgba(255,255,255,0.45)', letterSpacing: 0.5, display: 'flex', alignItems: 'center', gap: 6, marginBottom: 8, textDecoration: 'none' }}>
+              <Mail size={12} /> hospitalityheavens@gmail.com
             </a>
-            <a href="tel:+2349138688465" style={{ fontFamily: 'Montserrat,sans-serif', fontSize: 11, color: 'rgba(255,255,255,0.45)', letterSpacing: 0.5, display: 'block', textDecoration: 'none' }}>
-              Call: +234 913 868 8465
+            <a href="https://wa.me/27763511196" target="_blank" rel="noopener" style={{ fontFamily: 'Montserrat,sans-serif', fontSize: 11, color: '#25D366', letterSpacing: 0.5, display: 'flex', alignItems: 'center', gap: 6, marginBottom: 8, textDecoration: 'none' }}>
+              <MessageCircle size={12} /> +27 763 511 196
+            </a>
+            <a href="tel:+2349138688465" style={{ fontFamily: 'Montserrat,sans-serif', fontSize: 11, color: 'rgba(255,255,255,0.45)', letterSpacing: 0.5, display: 'flex', alignItems: 'center', gap: 6, textDecoration: 'none' }}>
+              <Phone size={12} /> +234 913 868 8465
             </a>
           </div>
         </div>
@@ -142,15 +150,7 @@ export default function Footer() {
           </a>
         </div>
 
-        {/* Support line */}
-        <div style={{ borderTop: '1px solid rgba(255,255,255,0.04)', padding: 'clamp(8px,1.5vw,10px) clamp(16px,5vw,24px)', textAlign: 'center', maxWidth: 1200, margin: '0 auto' }}>
-          <p style={{ fontFamily: 'Montserrat,sans-serif', fontSize: 10, color: 'rgba(255,255,255,0.2)', letterSpacing: 0.5 }}>
-            System support:{' '}
-            <a href="mailto:support@jktl.com.ng" style={{ color: 'rgba(100,150,255,0.45)', textDecoration: 'none' }}>
-              support@jktl.com.ng
-            </a>
-          </p>
-        </div>
+    
       </div>
     </footer>
   );

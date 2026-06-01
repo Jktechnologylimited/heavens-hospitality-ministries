@@ -7,29 +7,59 @@ export async function POST(req: NextRequest) {
 
   try {
     const res = await fetch(`https://api.paystack.co/transaction/verify/${reference}`, {
-      headers: { Authorization: `Bearer ${process.env.PAYSTACK_SECRET_KEY}` },
+      headers: {
+        Authorization: `Bearer ${process.env.PAYSTACK_SECRET_KEY}`,
+        'Content-Type': 'application/json',
+      },
     });
+
     const data = await res.json();
 
-    if (data.data?.status === 'success') {
-      const d = data.data;
+    if (!data.status) {
+      return NextResponse.json({ success: false, error: 'Paystack verification failed' }, { status: 400 });
+    }
+
+    const tx = data.data;
+
+    if (tx?.status === 'success') {
+      const amountNaira = tx.amount / 100; // Convert kobo back to naira
+
       await sql`
         UPDATE offerings SET
-          status = 'success',
-          paystack_ref = ${d.reference},
-          channel = ${d.channel},
-          paid_at = ${d.paid_at},
-          amount = ${d.amount / 100},
-          donor_name = COALESCE(${d.customer?.first_name ? d.customer.first_name + ' ' + (d.customer.last_name||'') : null}, donor_name),
-          donor_email = COALESCE(${d.customer?.email||null}, donor_email)
+          status        = 'success',
+          paystack_ref  = ${tx.reference},
+          channel       = ${tx.channel || null},
+          paid_at       = ${tx.paid_at || new Date().toISOString()},
+          amount        = ${amountNaira},
+          donor_name    = COALESCE(
+                            NULLIF(${tx.customer?.first_name
+                              ? (tx.customer.first_name + ' ' + (tx.customer.last_name || '')).trim()
+                              : null}, ''),
+                            donor_name
+                          ),
+          donor_email   = COALESCE(NULLIF(${tx.customer?.email || null}, ''), donor_email)
         WHERE reference = ${reference}
       `;
-      return NextResponse.json({ success: true, amount: d.amount / 100, currency: d.currency });
+
+      return NextResponse.json({
+        success: true,
+        amount: amountNaira,
+        currency: tx.currency,
+        reference: tx.reference,
+        channel: tx.channel,
+      });
+
     } else {
-      await sql`UPDATE offerings SET status='failed' WHERE reference=${reference}`;
-      return NextResponse.json({ success: false });
+      // Payment was not successful (abandoned, failed, etc.)
+      await sql`
+        UPDATE offerings SET status = 'failed', paid_at = NOW()
+        WHERE reference = ${reference}
+      `;
+      return NextResponse.json({ success: false, status: tx?.status });
     }
-  } catch (e) {
-    return NextResponse.json({ error: 'Verification failed' }, { status: 500 });
+
+  } catch (error) {
+    console.error('Paystack verify error:', error);
+    return NextResponse.json({ error: 'Verification request failed' }, { status: 500 });
   }
 }
