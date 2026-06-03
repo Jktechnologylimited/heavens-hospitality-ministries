@@ -204,7 +204,7 @@ export default function AdminSettings() {
             {[
               { label: 'Sending address', value: 'heavens-hospitality@mail.ibiz.name.ng', status: 'active' },
               { label: 'Ministry email', value: 'hospitalityheavens@gmail.com', status: 'active' },
-              { label: 'Domain', value: 'heavenshospitality.org', status: 'pending' },
+              { label: 'Domain', value: 'heavenshospitality.org', status: 'active' },
             ].map(({ label, value, status }) => (
               <div key={label} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '10px 14px', background: 'rgba(255,255,255,0.03)', borderRadius: 6, gap: 12, flexWrap: 'wrap' }}>
                 <div>
@@ -216,9 +216,7 @@ export default function AdminSettings() {
                 </span>
               </div>
             ))}
-            <p style={{ color: 'rgba(255,255,255,0.3)', fontSize: 11, margin: '8px 0 0', lineHeight: 1.6 }}>
-              Once heavenshospitality.org propagates, update EMAIL_FROM in Vercel to noreply@heavenshospitality.org and verify the domain in Resend.
-            </p>
+
           </div>
         </div>
 
