@@ -1,6 +1,7 @@
 'use client';
 import { useState } from 'react';
 import { MessageCircle, Phone, Mail, Globe, CreditCard } from 'lucide-react';
+import { FaWhatsapp } from 'react-icons/fa';
 import dynamic from 'next/dynamic';
 const OfferingModal = dynamic(() => import('./OfferingModal'), { ssr: false });
 

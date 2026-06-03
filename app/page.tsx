@@ -9,6 +9,7 @@ import HomeNewsletter from '@/components/HomeNewsletter';
 import HomePrayer from '@/components/HomePrayer';
 import HomeContact from '@/components/HomeContact';
 import HomeAccomplishments from '@/components/HomeAccomplishments';
+import HomeBook from '@/components/HomeBook';
 import HomeMissions from '@/components/HomeMissions';
 import HomeMiracles from '@/components/HomeMiracles';
 import HomeEvents from '@/components/HomeEvents';
@@ -19,6 +20,7 @@ export default function HomePage() {
       <Navbar />
       <main>
         <HomeHero />
+        <HomeBook />
         <HomeAccomplishments />
         <HomeAbout />
         <HomeEvents />

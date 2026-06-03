@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import sql from '@/lib/db';
-import { sendContactNotification } from '@/lib/email';
+import { sendContactNotification } from '@/lib/resend';
 
 export async function POST(request: NextRequest) {
   try {

@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { MessageCircle, CreditCard } from 'lucide-react';
+import { FaWhatsapp } from 'react-icons/fa';
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
