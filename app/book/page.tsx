@@ -144,14 +144,14 @@ export default function BookPage() {
               </h1>
 
               <p style={{ fontFamily:'Cormorant Garamond,serif', fontStyle:'italic', fontSize:'clamp(16px,2.5vw,20px)', color:'rgba(255,255,255,0.65)', marginBottom:8 }}>
-                By Evangelist Bob Edward Pepple
+                By Evangelist Bob Edward 
               </p>
               <p style={{ fontFamily:'Montserrat,sans-serif', fontSize:10, letterSpacing:2, color:'rgba(232,76,14,0.7)', textTransform:'uppercase', marginBottom:28 }}>
                 Heaven's Hospitality Ministries
               </p>
 
               <p style={{ fontFamily:'Cormorant Garamond,serif', fontSize:'clamp(17px,2.5vw,21px)', color:'rgba(255,255,255,0.8)', lineHeight:1.8, marginBottom:32, fontStyle:'italic' }}>
-                Religion told Bob Pepple that suffering was his lot — that heaven would come later. At 21, God showed him the truth. This book is that revelation. Your blessings are not on the way. They are already yours in Christ Jesus.
+                Religion told Bob Edward that suffering was his lot — that heaven would come later. At 21, God showed him the truth. This book is that revelation. Your blessings are not on the way. They are already yours in Christ Jesus.
               </p>
 
               {/* Download form */}
@@ -219,7 +219,7 @@ export default function BookPage() {
             <div style={{ display:'flex', justifyContent:'center' }}>
               <div style={{ width:'min(240px,65vw)', aspectRatio:'4/5', borderRadius:12, overflow:'hidden', boxShadow:'0 24px 56px rgba(11,26,46,0.18)', border:'3px solid rgba(232,76,14,0.2)', position:'relative' }}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/images/pastor-1.jpg" alt="Evangelist Bob Pepple" style={{ width:'100%', height:'100%', objectFit:'cover', objectPosition:'center top', display:'block' }} />
+                <img src="/images/pastor-1.jpg" alt="Evangelist Bob Edward" style={{ width:'100%', height:'100%', objectFit:'cover', objectPosition:'center top', display:'block' }} />
                 <div style={{ position:'absolute', bottom:0, left:0, right:0, height:'35%', background:'linear-gradient(transparent,rgba(11,26,46,0.85))' }} />
                 <div style={{ position:'absolute', top:0, left:0, right:0, height:3, background:'linear-gradient(90deg,var(--orange),var(--orange-light))' }} />
               </div>
@@ -227,16 +227,13 @@ export default function BookPage() {
             <div>
               <div className="section-label" style={{ marginBottom:14 }}>About the Author</div>
               <div style={{ width:56, height:3, background:'linear-gradient(90deg,var(--orange),var(--orange-light))', marginBottom:20, borderRadius:2 }} />
-              <h2 style={{ fontFamily:'Playfair Display,serif', fontSize:'clamp(24px,4vw,38px)', color:'var(--navy)', marginBottom:16 }}>Evangelist Bob Edward Pepple</h2>
+              <h2 style={{ fontFamily:'Playfair Display,serif', fontSize:'clamp(24px,4vw,38px)', color:'var(--navy)', marginBottom:16 }}>Evangelist Bob Edward </h2>
               <p style={{ fontFamily:'Cormorant Garamond,serif', fontSize:'clamp(16px,2.5vw,19px)', lineHeight:1.85, color:'var(--text-mid)', marginBottom:16 }}>
-                Evangelist Bob Pepple is the founder of Heaven's Hospitality Ministries — a global ministry taking the Gospel and the healing power of Jesus Christ across Africa and the nations.
-              </p>
+                Bob Edward is an anointed evangelist, teacher, and the Presiding President of Heaven’s Hospitality Ministries, a rapidly growing ministry reaching nations through crusades and conferences. </p>
               <p style={{ fontFamily:'Cormorant Garamond,serif', fontSize:'clamp(16px,2.5vw,19px)', lineHeight:1.85, color:'var(--text-mid)', marginBottom:16 }}>
-                His ministry began with a personal encounter with God and a burning desire to see believers walk in the full inheritance Christ secured on the cross — not religion, but resurrection power. Not suffering, but sonship.
-              </p>
+                His ministry is marked by notable miraculous healings, signs, and wonders. His message emphasizes the God-life, immortality, true success, and the believer’s oneness with the Lord Jesus Christ. </p>
               <p style={{ fontFamily:'Cormorant Garamond,serif', fontSize:'clamp(16px,2.5vw,19px)', lineHeight:1.85, color:'var(--text-mid)', marginBottom:28 }}>
-                <em>"In the Fullness of His Blessings"</em> is his first published work — born from years of preaching, healing crusades, and witnessing God restore what religion had stolen from His people.
-              </p>
+                He also convenes quarterly ministers’ classes for newly called ministers through the Immortality Ministerial School (IMS), a training platform rooted in the message of grace and power.</p>
               <a href="https://www.tiktok.com/@heavenshospitality" target="_blank" rel="noopener" className="btn-primary">
                 Follow the Ministry on TikTok
               </a>
@@ -274,7 +271,7 @@ export default function BookPage() {
                 "This book in your hand is one less person who would get to judgment day and realise they lived way below the life that Jesus secured for them."
               </blockquote>
               <cite style={{ fontFamily:'Montserrat,sans-serif', fontSize:11, color:'var(--orange)', display:'block', marginTop:16, letterSpacing:1 }}>
-                — Evangelist Bob Edward Pepple
+                — Evangelist Bob Edward 
               </cite>
             </div>
           </div>

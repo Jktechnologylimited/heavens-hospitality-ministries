@@ -76,7 +76,7 @@ export default function HomeAbout() {
             <span style={{ background: 'linear-gradient(135deg,var(--orange),var(--orange-light))', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>Hospitality of Heaven</span>
           </h2>
           <p style={{ fontFamily: 'Cormorant Garamond,serif', fontSize: 'clamp(16px,2.5vw,19px)', lineHeight: 1.85, color: 'var(--text-mid)', marginBottom: 20 }}>
-            Heaven's Hospitality Ministries is a global ministry founded by <strong>Evangelist Bob Pepple</strong> — dedicated to embodying the radical, transforming hospitality that God shows to every human soul.
+            Heaven's Hospitality Ministries is a global ministry founded by <strong>Evangelist Bob Edward</strong> — dedicated to embodying the radical, transforming hospitality that God shows to every human soul.
           </p>
           <p style={{ fontFamily: 'Cormorant Garamond,serif', fontSize: 'clamp(16px,2.5vw,19px)', lineHeight: 1.85, color: 'var(--text-mid)', marginBottom: 20 }}>
             From powerful crusades across Africa to healing services, free training, and daily online ministry — we carry the Gospel to the ends of the earth, serving, welcoming, and transforming lives by the power of the Holy Spirit.
