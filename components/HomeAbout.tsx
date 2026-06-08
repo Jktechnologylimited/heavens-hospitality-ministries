@@ -23,7 +23,7 @@ export default function HomeAbout() {
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/images/pastor-1.jpg"
-              alt="Evangelist Bob Pepple"
+              alt="Evangelist Bob Edward"
               style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top', display: 'block' }}
             />
             {/* Overlay gradient at bottom */}

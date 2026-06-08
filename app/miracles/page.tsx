@@ -57,7 +57,7 @@ export default function MiraclesPage() {
                     {m.is_featured && <div style={{ position:'absolute', top:16, right:16, background:'linear-gradient(135deg,var(--orange),var(--orange-light))', color:'white', fontFamily:'Montserrat,sans-serif', fontSize:9, fontWeight:700, letterSpacing:1, padding:'3px 10px', borderRadius:12, textTransform:'uppercase' }}> Featured</div>}
                     <div style={{ fontSize:'clamp(28px,5vw,36px)', marginBottom:14 }}></div>
                     <h3 style={{ fontFamily:'Playfair Display,serif', fontSize:'clamp(18px,3vw,22px)', color:'var(--navy)', marginBottom:10, lineHeight:1.3 }}>{m.title}</h3>
-                    <p style={{ fontFamily:'Cormorant Garamond,serif', fontStyle:'italic', fontSize:'clamp(15px,2vw,18px)', color:'var(--text-mid)', lineHeight:1.8, marginBottom:16 }}>"{m.story.slice(0,240)}{m.story.length>240?'…':''}"</p>
+                    <p style={{ fontFamily:'Cormorant Garamond,serif', fontStyle:'italic', fontSize:'clamp(15px,2vw,18px)', color:'var(--text-mid)', lineHeight:1.8, marginBottom:16 }}>"{m.story}"</p>
                     <div style={{ display:'flex', justifyContent:'space-between', alignItems:'center', borderTop:'1px solid rgba(11,26,46,0.08)', paddingTop:14, flexWrap:'wrap', gap:8 }}>
                       {m.person_name && <span style={{ fontFamily:'Playfair Display,serif', fontSize:15, color:'var(--navy)', fontStyle:'italic' }}>— {m.person_name}</span>}
                       {m.location && <span style={{ fontFamily:'Montserrat,sans-serif', fontSize:10, color:'var(--text-light)' }}> {m.location}</span>}

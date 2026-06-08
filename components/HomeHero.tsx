@@ -5,7 +5,7 @@ import Link from 'next/link';
 const SLIDES = [
   {
     url: '/images/pastor-2.jpg',
-    alt: 'Evangelist Bob Pepple preaching',
+    alt: 'Evangelist Bob Edward preaching',
     caption: 'Proclaiming the Word to the Nations',
     position: 'center top',
   },
@@ -17,7 +17,7 @@ const SLIDES = [
   },
   {
     url: '/images/pastor-3.jpg',
-    alt: 'Evangelist Bob Pepple on stage',
+    alt: 'Evangelist Bob Edward on stage',
     caption: 'Moving in the Power of the Holy Spirit',
     position: 'center 20%',
   },
@@ -29,7 +29,7 @@ const SLIDES = [
   },
   {
     url: '/images/pastor-4.jpg',
-    alt: 'Evangelist Bob Pepple ministering',
+    alt: 'Evangelist Bob Edward ministering',
     caption: 'Reaching Every Nation, Every Soul',
     position: 'center 30%',
   },

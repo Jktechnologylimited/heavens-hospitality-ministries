@@ -8,7 +8,7 @@ const CHAPTERS = [
   {
     number: 'Introduction',
     title: 'The Journey to Living in God\'s Fullness',
-    desc: 'Evangelist Bob Pepple shares his personal encounter with God at age four — and how at 21 he broke free from religion masquerading as Christianity to discover what was always rightfully his in Christ.',
+    desc: 'Evangelist Bob Edward shares his personal encounter with God at age four — and how at 21 he broke free from religion masquerading as Christianity to discover what was always rightfully his in Christ.',
   },
   {
     number: 'Chapter One',
@@ -144,7 +144,7 @@ export default function BookPage() {
               </h1>
 
               <p style={{ fontFamily:'Cormorant Garamond,serif', fontStyle:'italic', fontSize:'clamp(16px,2.5vw,20px)', color:'rgba(255,255,255,0.65)', marginBottom:8 }}>
-                By Evangelist Bob Edward 
+                By Evangelist Bob Edward
               </p>
               <p style={{ fontFamily:'Montserrat,sans-serif', fontSize:10, letterSpacing:2, color:'rgba(232,76,14,0.7)', textTransform:'uppercase', marginBottom:28 }}>
                 Heaven's Hospitality Ministries
@@ -227,13 +227,13 @@ export default function BookPage() {
             <div>
               <div className="section-label" style={{ marginBottom:14 }}>About the Author</div>
               <div style={{ width:56, height:3, background:'linear-gradient(90deg,var(--orange),var(--orange-light))', marginBottom:20, borderRadius:2 }} />
-              <h2 style={{ fontFamily:'Playfair Display,serif', fontSize:'clamp(24px,4vw,38px)', color:'var(--navy)', marginBottom:16 }}>Evangelist Bob Edward </h2>
+              <h2 style={{ fontFamily:'Playfair Display,serif', fontSize:'clamp(24px,4vw,38px)', color:'var(--navy)', marginBottom:16 }}>Evangelist Bob Edward</h2>
               <p style={{ fontFamily:'Cormorant Garamond,serif', fontSize:'clamp(16px,2.5vw,19px)', lineHeight:1.85, color:'var(--text-mid)', marginBottom:16 }}>
-                Bob Edward is an anointed evangelist, teacher, and the Presiding President of Heaven’s Hospitality Ministries, a rapidly growing ministry reaching nations through crusades and conferences. </p>
+              Bob Edward is an anointed evangelist, teacher, and the Presiding President of Heaven’s Hospitality Ministries, a rapidly growing ministry reaching nations through crusades and conferences. 
+               </p>
               <p style={{ fontFamily:'Cormorant Garamond,serif', fontSize:'clamp(16px,2.5vw,19px)', lineHeight:1.85, color:'var(--text-mid)', marginBottom:16 }}>
-                His ministry is marked by notable miraculous healings, signs, and wonders. His message emphasizes the God-life, immortality, true success, and the believer’s oneness with the Lord Jesus Christ. </p>
-              <p style={{ fontFamily:'Cormorant Garamond,serif', fontSize:'clamp(16px,2.5vw,19px)', lineHeight:1.85, color:'var(--text-mid)', marginBottom:28 }}>
-                He also convenes quarterly ministers’ classes for newly called ministers through the Immortality Ministerial School (IMS), a training platform rooted in the message of grace and power.</p>
+               His ministry is marked by notable miraculous healings, signs, and wonders. His message emphasizes the God-life, immortality, true success, and the believer’s oneness with the Lord Jesus Christ. He also convenes quarterly ministers’ classes for newly called ministers through the Immortality Ministerial School (IMS), a training platform rooted in the message of grace and power.  </p>
+              
               <a href="https://www.tiktok.com/@heavenshospitality" target="_blank" rel="noopener" className="btn-primary">
                 Follow the Ministry on TikTok
               </a>
@@ -271,7 +271,7 @@ export default function BookPage() {
                 "This book in your hand is one less person who would get to judgment day and realise they lived way below the life that Jesus secured for them."
               </blockquote>
               <cite style={{ fontFamily:'Montserrat,sans-serif', fontSize:11, color:'var(--orange)', display:'block', marginTop:16, letterSpacing:1 }}>
-                — Evangelist Bob Edward 
+                — Evangelist Bob Edward
               </cite>
             </div>
           </div>

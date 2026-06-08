@@ -46,7 +46,7 @@ export default function TrainingPage() {
             Free <span className="accent-shimmer">Zoom Training</span>
           </h1>
           <p style={{ fontFamily:'Cormorant Garamond,serif', fontStyle:'italic', fontSize:'clamp(16px,2.5vw,22px)', color:'rgba(255,255,255,0.7)', maxWidth:580, margin:'0 auto' }}>
-            Live online training sessions by Evangelist Bob Pepple — free for everyone. Register to get your Zoom link instantly.
+            Live online training sessions by Evangelist Bob Edward — free for everyone. Register to get your Zoom link instantly.
           </p>
         </div>
 

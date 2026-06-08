@@ -120,9 +120,7 @@ export default function Footer() {
             <p style={{ fontFamily: 'Montserrat,sans-serif', fontSize: 11, color: 'rgba(255,255,255,0.28)' }}>
               © {new Date().getFullYear()} Heaven's Hospitality Ministries. All rights reserved.
             </p>
-            <Link href="/admin" style={{ fontFamily: 'Montserrat,sans-serif', fontSize: 10, color: 'rgba(255,255,255,0.18)', letterSpacing: 0.5, textDecoration: 'none' }}>
-              Admin
-            </Link>
+            
           </div>
 
           {/* Right: JKTL developer credit */}

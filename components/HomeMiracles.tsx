@@ -32,7 +32,7 @@ export default function HomeMiracles() {
               {m.is_featured && <div style={{ position:'absolute', top:-10, left:20, background:'linear-gradient(135deg,var(--orange),var(--orange-light))', color:'white', fontFamily:'Montserrat,sans-serif', fontSize:9, fontWeight:700, letterSpacing:1, padding:'3px 12px', borderRadius:12, textTransform:'uppercase' }}>Featured</div>}
               <div style={{ fontSize:'clamp(24px,4vw,32px)', marginBottom:14 }}></div>
               <h3 style={{ fontFamily:'Playfair Display,serif', fontSize:'clamp(17px,2.5vw,20px)', color:'white', marginBottom:12, lineHeight:1.3 }}>{m.title}</h3>
-              <p style={{ fontFamily:'Cormorant Garamond,serif', fontStyle:'italic', fontSize:'clamp(15px,2vw,18px)', color:'rgba(255,255,255,0.72)', lineHeight:1.8, marginBottom:16 }}>"{m.story.slice(0,200)}{m.story.length>200?'…':''}"</p>
+              <p style={{ fontFamily:'Cormorant Garamond,serif', fontStyle:'italic', fontSize:'clamp(15px,2vw,18px)', color:'rgba(255,255,255,0.72)', lineHeight:1.8, marginBottom:16 }}>"{m.story.slice(0,300)}{m.story.length>300?'…':''}"</p>
               <div style={{ borderTop:'1px solid rgba(255,255,255,0.08)', paddingTop:12, display:'flex', justifyContent:'space-between', flexWrap:'wrap', gap:6 }}>
                 {m.person_name && <span style={{ fontFamily:'Playfair Display,serif', fontSize:14, color:'var(--orange)', fontStyle:'italic' }}>— {m.person_name}</span>}
                 {m.location && <span style={{ fontFamily:'Montserrat,sans-serif', fontSize:10, color:'rgba(255,255,255,0.4)' }}> {m.location}</span>}
