@@ -31,7 +31,7 @@ export default function HomeAbout() {
             {/* Name tag */}
             <div style={{ position: 'absolute', bottom: 20, left: 20, right: 20 }}>
               <div style={{ fontFamily: 'Montserrat,sans-serif', fontSize: 10, letterSpacing: 3, color: 'rgba(232,76,14,0.9)', textTransform: 'uppercase', marginBottom: 4 }}>Founder & Senior Evangelist</div>
-              <div style={{ fontFamily: 'Playfair Display,serif', fontSize: 'clamp(18px,3vw,24px)', color: 'white', fontWeight: 700 }}>Evangelist Bob Pepple</div>
+              <div style={{ fontFamily: 'Playfair Display,serif', fontSize: 'clamp(18px,3vw,24px)', color: 'white', fontWeight: 700 }}>Evangelist Bob Edward</div>
             </div>
             {/* Orange border accent */}
             <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 4, background: 'linear-gradient(90deg, var(--orange), var(--orange-light))' }} />
