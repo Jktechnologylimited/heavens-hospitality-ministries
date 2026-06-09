@@ -8,21 +8,29 @@ export async function POST(req: NextRequest) {
 
   if (!email) return NextResponse.json({ error: 'Email is required' }, { status: 400 });
 
+  // Check if already subscribed
   const existing = await sql`SELECT * FROM newsletter_subscribers WHERE email = ${email}`;
+
   if (existing.length > 0 && existing[0].is_active) {
     return NextResponse.json({ error: 'Already subscribed' }, { status: 409 });
   }
 
   if (existing.length > 0) {
-    await sql`UPDATE newsletter_subscribers SET is_active = true WHERE email = ${email}`;
+    await sql`UPDATE newsletter_subscribers SET is_active = true, name = ${name || ''} WHERE email = ${email}`;
   } else {
     await sql`INSERT INTO newsletter_subscribers (email, name) VALUES (${email}, ${name || ''})`;
   }
 
+  // Send welcome email — log detailed error if it fails
   try {
-    await sendWelcomeEmail(email, name || '');
-  } catch (e) {
-    console.error('Welcome email failed:', e);
+    if (!process.env.RESEND_API_KEY) {
+      console.error('WELCOME EMAIL FAILED: RESEND_API_KEY is not set in environment variables');
+    } else {
+      const result = await sendWelcomeEmail(email, name || 'Friend');
+      console.log('Welcome email sent:', JSON.stringify(result));
+    }
+  } catch (e: any) {
+    console.error('Welcome email error:', e?.message || e);
   }
 
   return NextResponse.json({ success: true });

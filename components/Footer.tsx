@@ -120,7 +120,9 @@ export default function Footer() {
             <p style={{ fontFamily: 'Montserrat,sans-serif', fontSize: 11, color: 'rgba(255,255,255,0.28)' }}>
               © {new Date().getFullYear()} Heaven's Hospitality Ministries. All rights reserved.
             </p>
-            
+            <Link href="/admin" style={{ fontFamily: 'Montserrat,sans-serif', fontSize: 10, color: 'rgba(255,255,255,0.18)', letterSpacing: 0.5, textDecoration: 'none' }}>
+              Admin
+            </Link>
           </div>
 
           {/* Right: JKTL developer credit */}
@@ -147,14 +149,14 @@ export default function Footer() {
         </div>
 
         {/* Support line */}
-        {/* <div style={{ borderTop: '1px solid rgba(255,255,255,0.04)', padding: 'clamp(8px,1.5vw,10px) clamp(16px,5vw,24px)', textAlign: 'center', maxWidth: 1200, margin: '0 auto' }}>
+        <div style={{ borderTop: '1px solid rgba(255,255,255,0.04)', padding: 'clamp(8px,1.5vw,10px) clamp(16px,5vw,24px)', textAlign: 'center', maxWidth: 1200, margin: '0 auto' }}>
           <p style={{ fontFamily: 'Montserrat,sans-serif', fontSize: 10, color: 'rgba(255,255,255,0.2)', letterSpacing: 0.5 }}>
             System support:{' '}
             <a href="mailto:support@jktl.com.ng" style={{ color: 'rgba(100,150,255,0.45)', textDecoration: 'none' }}>
               support@jktl.com.ng
             </a>
           </p>
-        </div> */}
+        </div>
       </div>
     </footer>
   );
