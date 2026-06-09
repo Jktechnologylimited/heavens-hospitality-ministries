@@ -127,7 +127,7 @@ export async function sendWelcomeEmail(email: string, name: string) {
     </div>
 
     <div class="body">
-      <p>Dear ${firstName},</p>
+      <p>Hello ${firstName},</p>
 
       <p>Welcome to the Heaven's Hospitality Ministries family. By subscribing, you've joined a global community of believers who are discovering what it truly means to live in the fullness of God's love, grace, and hospitality.</p>
 
