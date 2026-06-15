@@ -135,11 +135,27 @@ export default function OfferingModal({ onClose }: Props) {
   };
 
   const BankTransfer = () => (
-    <div style={{ background: 'rgba(232,76,14,0.07)', border: '1px solid rgba(232,76,14,0.15)', borderRadius: 8, padding: '16px 18px' }}>
-      <div style={{ fontSize: 9, letterSpacing: 2, color: 'rgba(232,76,14,0.7)', textTransform: 'uppercase', marginBottom: 8, fontWeight: 600 }}>Bank Transfer (Nigeria)</div>
-      <div style={{ fontSize: 14, color: 'rgba(255,255,255,0.6)', marginBottom: 3 }}>Access Bank</div>
-      <div style={{ fontSize: 22, color: 'var(--orange)', fontWeight: 700, letterSpacing: 1, fontFamily: 'monospace' }}>1971079112</div>
-      <div style={{ fontSize: 10, color: 'rgba(255,255,255,0.4)', marginTop: 4 }}>HEAVEN'S HOSPITALITY MINISTRIES</div>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+      {/* NGN */}
+      <div style={{ background: 'rgba(232,76,14,0.07)', border: '1px solid rgba(232,76,14,0.15)', borderRadius: 8, padding: '14px 16px' }}>
+        <div style={{ fontSize: 9, letterSpacing: 2, color: 'rgba(232,76,14,0.7)', textTransform: 'uppercase', marginBottom: 6, fontWeight: 600 }}>Access Bank · Nigeria (NGN)</div>
+        <div style={{ fontSize: 20, color: 'var(--orange)', fontWeight: 700, letterSpacing: 1, fontFamily: 'monospace' }}>1971079112</div>
+        <div style={{ fontSize: 10, color: 'rgba(255,255,255,0.4)', marginTop: 3 }}>HEAVEN'S HOSPITALITY MINISTRIES</div>
+      </div>
+      {/* USD */}
+      <div style={{ background: 'rgba(232,76,14,0.07)', border: '1px solid rgba(232,76,14,0.15)', borderRadius: 8, padding: '14px 16px' }}>
+        <div style={{ fontSize: 9, letterSpacing: 2, color: 'rgba(232,76,14,0.7)', textTransform: 'uppercase', marginBottom: 6, fontWeight: 600 }}>Access Bank · USD</div>
+        <div style={{ fontSize: 20, color: 'var(--orange)', fontWeight: 700, letterSpacing: 1, fontFamily: 'monospace' }}>1981712542</div>
+        <div style={{ fontSize: 10, color: 'rgba(255,255,255,0.4)', marginTop: 3 }}>HEAVEN'S HOSPITALITY MINISTRIES (USD)</div>
+        <div style={{ fontSize: 10, color: 'rgba(255,255,255,0.35)', marginTop: 2 }}>Swift: ABNGNGLA</div>
+      </div>
+      {/* EUR */}
+      <div style={{ background: 'rgba(232,76,14,0.07)', border: '1px solid rgba(232,76,14,0.15)', borderRadius: 8, padding: '14px 16px' }}>
+        <div style={{ fontSize: 9, letterSpacing: 2, color: 'rgba(232,76,14,0.7)', textTransform: 'uppercase', marginBottom: 6, fontWeight: 600 }}>Access Bank · EUR</div>
+        <div style={{ fontSize: 20, color: 'var(--orange)', fontWeight: 700, letterSpacing: 1, fontFamily: 'monospace' }}>1981676800</div>
+        <div style={{ fontSize: 10, color: 'rgba(255,255,255,0.4)', marginTop: 3 }}>HEAVEN'S HOSPITALITY MINISTRIES (EUR)</div>
+        <div style={{ fontSize: 10, color: 'rgba(255,255,255,0.35)', marginTop: 2 }}>Swift: ABNGNGLA</div>
+      </div>
     </div>
   );
 
@@ -249,7 +265,7 @@ export default function OfferingModal({ onClose }: Props) {
 
               {/* Bank transfer */}
               <div style={{ borderTop: '1px solid rgba(255,255,255,0.06)', paddingTop: 16 }}>
-                <div style={{ fontSize: 9, letterSpacing: 1.5, color: 'rgba(255,255,255,0.25)', textTransform: 'uppercase', textAlign: 'center', marginBottom: 12 }}>Or transfer directly in Nigeria</div>
+                <div style={{ fontSize: 9, letterSpacing: 1.5, color: 'rgba(255,255,255,0.25)', textTransform: 'uppercase', textAlign: 'center', marginBottom: 12 }}>Or transfer directly via bank</div>
                 <BankTransfer />
               </div>
             </div>

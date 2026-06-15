@@ -1,6 +1,9 @@
 'use client';
 import { SiTiktok } from 'react-icons/si';
+import { FaWhatsapp } from 'react-icons/fa';
+import { useSiteContent } from '@/lib/useSiteContent';
 export default function HomeAbout() {
+  const { get } = useSiteContent();
   return (
     <section id="about" style={{ background: 'var(--off-white)', padding: 'clamp(64px,10vw,100px) clamp(16px,5vw,24px)' }}>
       <div style={{
@@ -76,7 +79,7 @@ export default function HomeAbout() {
             <span style={{ background: 'linear-gradient(135deg,var(--orange),var(--orange-light))', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>Hospitality of Heaven</span>
           </h2>
           <p style={{ fontFamily: 'Cormorant Garamond,serif', fontSize: 'clamp(16px,2.5vw,19px)', lineHeight: 1.85, color: 'var(--text-mid)', marginBottom: 20 }}>
-            Heaven's Hospitality Ministries is a global ministry founded by <strong>Evangelist Bob Edward</strong> — dedicated to embodying the radical, transforming hospitality that God shows to every human soul.
+            {get('about_paragraph_1')}
           </p>
           <p style={{ fontFamily: 'Cormorant Garamond,serif', fontSize: 'clamp(16px,2.5vw,19px)', lineHeight: 1.85, color: 'var(--text-mid)', marginBottom: 20 }}>
             From powerful crusades across Africa to healing services, free training, and daily online ministry — we carry the Gospel to the ends of the earth, serving, welcoming, and transforming lives by the power of the Holy Spirit.
@@ -90,10 +93,10 @@ export default function HomeAbout() {
             </p>
           </div>
           <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
-            <a href="https://www.tiktok.com/@heavenshospitality" target="_blank" rel="noopener" className="btn-primary">
+            <a href="{`https://www.tiktok.com/@${get('social_tiktok').replace('@','')}`}" target="_blank" rel="noopener" className="btn-primary">
               Follow on TikTok 
             </a>
-            <a href="https://wa.me/27763511196" target="_blank" rel="noopener" style={{ display:'inline-flex', alignItems:'center', gap:8, background:'#25D366', color:'white', fontFamily:'Montserrat,sans-serif', fontSize:12, fontWeight:700, letterSpacing:1.5, textTransform:'uppercase', padding:'13px 24px', borderRadius:4, textDecoration:'none', transition:'all 0.2s' }}>
+            <a href="{`https://wa.me/${get('contact_whatsapp').replace(/[^0-9]/g, '')}`}" target="_blank" rel="noopener" style={{ display:'inline-flex', alignItems:'center', gap:8, background:'#25D366', color:'white', fontFamily:'Montserrat,sans-serif', fontSize:12, fontWeight:700, letterSpacing:1.5, textTransform:'uppercase', padding:'13px 24px', borderRadius:4, textDecoration:'none', transition:'all 0.2s' }}>
                WhatsApp
             </a>
           </div>

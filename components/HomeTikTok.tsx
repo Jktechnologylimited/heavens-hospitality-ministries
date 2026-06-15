@@ -1,20 +1,10 @@
 'use client';
 import { useEffect, useState } from 'react';
 import { SiTiktok, SiYoutube } from 'react-icons/si';
+import { useSiteContent } from '@/lib/useSiteContent';
 
-const YT_HANDLE = 'HeveansHospitality';
-const YT_URL = `https://www.youtube.com/@${YT_HANDLE}`;
-const TT_URL = 'https://www.tiktok.com/@heavenshospitality';
-
-function YoutubeEmbed() {
-  const [videoId, setVideoId] = useState<string | null>(null);
-
-  useEffect(() => {
-    fetch('/api/settings?key=youtube_video_id')
-      .then(r => r.json())
-      .then(d => { if (d.value) setVideoId(d.value); })
-      .catch(() => {});
-  }, []);
+function YoutubeEmbed({ videoId, ytHandle }: { videoId: string; ytHandle: string }) {
+  const YT_URL = `https://www.youtube.com/@${ytHandle}`; // eslint-disable-line
 
   return (
     <div style={{ borderRadius: 10, overflow: 'hidden', background: '#0f0f0f', border: '1px solid rgba(255,255,255,0.08)' }}>
@@ -38,7 +28,7 @@ function YoutubeEmbed() {
             Heaven's Hospitality Ministries
           </h3>
           <p style={{ fontFamily: 'Montserrat,sans-serif', fontSize: 10, color: 'rgba(255,255,255,0.4)', letterSpacing: 1, marginBottom: 24 }}>
-            @{YT_HANDLE}
+            @{ytHandle}
           </p>
           <a href={YT_URL} target="_blank" rel="noopener noreferrer"
             style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: '#FF0000', color: 'white', fontFamily: 'Montserrat,sans-serif', fontSize: 12, fontWeight: 700, letterSpacing: 1, textTransform: 'uppercase', padding: '12px 24px', borderRadius: 6, textDecoration: 'none', marginBottom: 20 }}>
@@ -63,6 +53,12 @@ function YoutubeEmbed() {
 }
 
 export default function HomeSocial() {
+  const { get } = useSiteContent();
+  const ttHandle = get('social_tiktok').replace('@', '');
+  const ytHandle = get('social_youtube').replace('@', '');
+  const ytVideoId = get('social_youtube_video_id');
+  const TT_URL = `https://www.tiktok.com/@${ttHandle}`;
+  const YT_URL = `https://www.youtube.com/@${ytHandle}`;
   return (
     <section style={{
       background: 'linear-gradient(160deg, var(--navy) 0%, var(--navy-mid) 100%)',
@@ -95,7 +91,7 @@ export default function HomeSocial() {
               </div>
               <div style={{ flex: 1 }}>
                 <div style={{ fontFamily: 'Montserrat,sans-serif', fontSize: 13, fontWeight: 700, color: 'white' }}>TikTok</div>
-                <div style={{ fontFamily: 'Montserrat,sans-serif', fontSize: 10, color: 'rgba(255,255,255,0.45)' }}>@heavenshospitality</div>
+                <div style={{ fontFamily: 'Montserrat,sans-serif', fontSize: 10, color: 'rgba(255,255,255,0.45)' }}>{`@${ttHandle}`}</div>
               </div>
               <a href={TT_URL} target="_blank" rel="noopener noreferrer"
                 className="btn-primary"
@@ -105,7 +101,7 @@ export default function HomeSocial() {
             </div>
             <div style={{ borderRadius: 10, overflow: 'hidden', background: '#010101', border: '1px solid rgba(255,255,255,0.08)', minHeight: 500, display: 'flex', alignItems: 'stretch' }}>
               <iframe
-                src="https://www.tiktok.com/embed/@heavenshospitality"
+                src={`https://www.tiktok.com/embed/@${ttHandle}`}
                 style={{ width: '100%', minHeight: 500, border: 'none', display: 'block' }}
                 allow="fullscreen"
                 title="Heaven's Hospitality Ministries TikTok"
@@ -122,14 +118,14 @@ export default function HomeSocial() {
               </div>
               <div style={{ flex: 1 }}>
                 <div style={{ fontFamily: 'Montserrat,sans-serif', fontSize: 13, fontWeight: 700, color: 'white' }}>YouTube</div>
-                <div style={{ fontFamily: 'Montserrat,sans-serif', fontSize: 10, color: 'rgba(255,255,255,0.45)' }}>@{YT_HANDLE}</div>
+                <div style={{ fontFamily: 'Montserrat,sans-serif', fontSize: 10, color: 'rgba(255,255,255,0.45)' }}>{`@${ytHandle}`}</div>
               </div>
               <a href={YT_URL} target="_blank" rel="noopener noreferrer"
                 style={{ display: 'inline-flex', alignItems: 'center', gap: 6, background: '#FF0000', color: 'white', fontFamily: 'Montserrat,sans-serif', fontSize: 10, fontWeight: 700, letterSpacing: 1, textTransform: 'uppercase', padding: '8px 14px', borderRadius: 4, textDecoration: 'none' }}>
                 <SiYoutube size={12} /> Subscribe
               </a>
             </div>
-            <YoutubeEmbed />
+            <YoutubeEmbed videoId={ytVideoId} ytHandle={ytHandle} />
           </div>
 
         </div>

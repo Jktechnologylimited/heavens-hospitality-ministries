@@ -2,16 +2,22 @@
 import { useState } from 'react';
 import { MessageCircle, Phone, Mail, Globe, CreditCard } from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa';
+import { useSiteContent } from '@/lib/useSiteContent';
 import dynamic from 'next/dynamic';
 const OfferingModal = dynamic(() => import('./OfferingModal'), { ssr: false });
 
 export default function HomeContact() {
+  const { get } = useSiteContent();
   const [showOffering, setShowOffering] = useState(false);
 
+  const email = get('contact_email');
+  const whatsapp = get('contact_whatsapp').replace(/[^0-9]/g, '');
+  const phone = get('contact_phone');
+
   const contacts = [
-    { icon: <Mail size={18} />, label: 'Email', value: 'hospitalityheavens@gmail.com', href: 'mailto:hospitalityheavens@gmail.com' },
-    { icon: <MessageCircle size={18} />, label: 'WhatsApp', value: '+27 763 511 196', href: 'https://wa.me/27763511196' },
-    { icon: <Phone size={18} />, label: 'Direct Call', value: '+234 913 868 8465', href: 'tel:+2349138688465' },
+    { icon: <Mail size={18} />, label: 'Email', value: email, href: `mailto:${email}` },
+    { icon: <MessageCircle size={18} />, label: 'WhatsApp', value: get('contact_whatsapp'), href: `https://wa.me/${whatsapp}` },
+    { icon: <Phone size={18} />, label: 'Direct Call', value: phone, href: `tel:${phone}` },
     { icon: <Globe size={18} />, label: 'Ministry', value: 'Global — Reaching the Nations', href: null },
   ];
 
@@ -44,10 +50,27 @@ export default function HomeContact() {
             <button onClick={() => setShowOffering(true)} className="btn-primary" style={{ padding: 'clamp(14px,3vw,18px) clamp(28px,6vw,48px)', fontSize: 'clamp(12px,2vw,15px)', display: 'flex', alignItems: 'center', gap: 8 }}>
               <CreditCard size={16} /> Give an Offering
             </button>
-            <div style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(232,76,14,0.2)', borderRadius: 8, padding: 'clamp(14px,3vw,18px) clamp(20px,4vw,32px)', textAlign: 'center' }}>
-              <div style={{ fontFamily: 'Montserrat,sans-serif', fontSize: 9, letterSpacing: 2, color: 'rgba(255,255,255,0.5)', textTransform: 'uppercase', marginBottom: 4 }}>Bank Transfer · Access Bank</div>
-              <div style={{ fontFamily: 'Playfair Display,serif', fontSize: 'clamp(18px,3vw,24px)', color: 'var(--orange)', fontWeight: 700 }}>1971079112</div>
-              <div style={{ fontFamily: 'Montserrat,sans-serif', fontSize: 10, color: 'rgba(255,255,255,0.5)', marginTop: 2 }}>HEAVEN'S HOSPITALITY MINISTRIES</div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+              {/* NGN */}
+              <div style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(232,76,14,0.2)', borderRadius: 8, padding: 'clamp(12px,2.5vw,16px) clamp(16px,3vw,24px)' }}>
+                <div style={{ fontFamily: 'Montserrat,sans-serif', fontSize: 9, letterSpacing: 2, color: 'rgba(232,76,14,0.7)', textTransform: 'uppercase', marginBottom: 4 }}>Access Bank · NGN</div>
+                <div style={{ fontFamily: 'Playfair Display,serif', fontSize: 'clamp(17px,2.5vw,22px)', color: 'var(--orange)', fontWeight: 700 }}>1971079112</div>
+                <div style={{ fontFamily: 'Montserrat,sans-serif', fontSize: 10, color: 'rgba(255,255,255,0.4)', marginTop: 2 }}>HEAVEN'S HOSPITALITY MINISTRIES</div>
+              </div>
+              {/* USD */}
+              <div style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(232,76,14,0.2)', borderRadius: 8, padding: 'clamp(12px,2.5vw,16px) clamp(16px,3vw,24px)' }}>
+                <div style={{ fontFamily: 'Montserrat,sans-serif', fontSize: 9, letterSpacing: 2, color: 'rgba(232,76,14,0.7)', textTransform: 'uppercase', marginBottom: 4 }}>Access Bank · USD</div>
+                <div style={{ fontFamily: 'Playfair Display,serif', fontSize: 'clamp(17px,2.5vw,22px)', color: 'var(--orange)', fontWeight: 700 }}>1981712542</div>
+                <div style={{ fontFamily: 'Montserrat,sans-serif', fontSize: 10, color: 'rgba(255,255,255,0.4)', marginTop: 2 }}>HEAVEN'S HOSPITALITY MINISTRIES (USD)</div>
+                <div style={{ fontFamily: 'Montserrat,sans-serif', fontSize: 10, color: 'rgba(255,255,255,0.3)', marginTop: 1 }}>Swift: ABNGNGLA</div>
+              </div>
+              {/* EUR */}
+              <div style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(232,76,14,0.2)', borderRadius: 8, padding: 'clamp(12px,2.5vw,16px) clamp(16px,3vw,24px)' }}>
+                <div style={{ fontFamily: 'Montserrat,sans-serif', fontSize: 9, letterSpacing: 2, color: 'rgba(232,76,14,0.7)', textTransform: 'uppercase', marginBottom: 4 }}>Access Bank · EUR</div>
+                <div style={{ fontFamily: 'Playfair Display,serif', fontSize: 'clamp(17px,2.5vw,22px)', color: 'var(--orange)', fontWeight: 700 }}>1981676800</div>
+                <div style={{ fontFamily: 'Montserrat,sans-serif', fontSize: 10, color: 'rgba(255,255,255,0.4)', marginTop: 2 }}>HEAVEN'S HOSPITALITY MINISTRIES (EUR)</div>
+                <div style={{ fontFamily: 'Montserrat,sans-serif', fontSize: 10, color: 'rgba(255,255,255,0.3)', marginTop: 1 }}>Swift: ABNGNGLA</div>
+              </div>
             </div>
           </div>
         </div>
@@ -98,7 +121,7 @@ export default function HomeContact() {
               <p style={{ fontFamily: 'Cormorant Garamond,serif', fontStyle: 'italic', fontSize: 'clamp(15px,2.5vw,17px)', color: 'rgba(255,255,255,0.7)', textAlign: 'center', lineHeight: 1.75, marginBottom: 24 }}>
                 For prayer requests, partnership enquiries, or just to say hello.
               </p>
-              <a href="https://wa.me/27763511196" target="_blank" rel="noopener"
+              <a href={`https://wa.me/${whatsapp}`} target="_blank" rel="noopener"
                 style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 10, background: '#25D366', color: 'white', fontFamily: 'Montserrat,sans-serif', fontSize: 13, fontWeight: 700, letterSpacing: 1.5, textTransform: 'uppercase', padding: '15px 24px', borderRadius: 8, textDecoration: 'none', transition: 'all 0.2s' }}>
                 <MessageCircle size={16} /> Message on WhatsApp
               </a>
@@ -111,7 +134,7 @@ export default function HomeContact() {
               <p style={{ fontFamily: 'Cormorant Garamond,serif', fontSize: 'clamp(15px,2vw,17px)', color: 'var(--text-mid)', lineHeight: 1.7, marginBottom: 14 }}>
                 Call us directly for urgent prayer needs.
               </p>
-              <a href="tel:+2349138688465" style={{ fontFamily: 'Playfair Display,serif', fontSize: 'clamp(18px,3vw,22px)', color: 'var(--orange)', fontWeight: 700, textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 8 }}>
+              <a href={`tel:${phone}`} style={{ fontFamily: 'Playfair Display,serif', fontSize: 'clamp(18px,3vw,22px)', color: 'var(--orange)', fontWeight: 700, textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 8 }}>
                 <Phone size={18} /> +234 913 868 8465
               </a>
             </div>

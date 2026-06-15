@@ -1,8 +1,10 @@
 'use client';
+import { useSiteContent } from '@/lib/useSiteContent';
 import { Mail } from 'lucide-react';
 import { useState } from 'react';
 
 export default function HomeNewsletter() {
+  const { get } = useSiteContent();
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
   const [status, setStatus] = useState<'idle'|'loading'|'success'|'error'>('idle');

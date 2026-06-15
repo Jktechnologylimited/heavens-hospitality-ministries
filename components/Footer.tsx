@@ -1,11 +1,18 @@
 'use client';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useSiteContent } from '@/lib/useSiteContent';
 import { Mail, Phone, MessageCircle } from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa';
 import { SiTiktok, SiYoutube } from 'react-icons/si';
 
 export default function Footer() {
+  const { get } = useSiteContent();
+  const email = get('contact_email');
+  const whatsapp = get('contact_whatsapp').replace(/[^0-9]/g, '');
+  const phone = get('contact_phone');
+  const ttHandle = get('social_tiktok').replace('@', '');
+  const ytHandle = get('social_youtube').replace('@', '');
   return (
     <footer style={{ background: '#060e1a', borderTop: '1px solid rgba(232,76,14,0.15)', color: 'rgba(255,255,255,0.65)', paddingTop: 'clamp(40px,8vw,64px)' }}>
       <div style={{
@@ -26,12 +33,12 @@ export default function Footer() {
             </div>
           </div>
           <p style={{ fontFamily: 'Cormorant Garamond,serif', fontSize: 'clamp(14px,1.8vw,16px)', lineHeight: 1.8, color: 'rgba(255,255,255,0.5)', marginBottom: 20 }}>
-            Spreading the love and hospitality of Heaven to every nation, tribe, and tongue.
+            {get('footer_tagline')}
           </p>
           {/* Socials — TikTok + YouTube only */}
           <div style={{ display: 'flex', gap: 10 }}>
             <a
-              href="https://www.tiktok.com/@heavenshospitality"
+              href={`https://www.tiktok.com/@${ttHandle}`}
               target="_blank" rel="noopener" aria-label="TikTok"
               style={{ width: 36, height: 36, background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(232,76,14,0.2)', borderRadius: 6, display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontFamily: 'Montserrat,sans-serif', fontSize: 11, fontWeight: 900, transition: 'all 0.2s', textDecoration: 'none' }}
               onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = 'rgba(255,255,255,0.12)'; }}
@@ -40,7 +47,7 @@ export default function Footer() {
               T
             </a>
             <a
-              href="https://www.youtube.com/@HeveansHospitality"
+              href={`https://www.youtube.com/@${ytHandle}`}
               target="_blank" rel="noopener" aria-label="YouTube"
               style={{ width: 36, height: 36, background: 'rgba(255,0,0,0.12)', border: '1px solid rgba(255,0,0,0.2)', borderRadius: 6, display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#ff4444', fontFamily: 'Montserrat,sans-serif', fontSize: 11, fontWeight: 900, transition: 'all 0.2s', textDecoration: 'none' }}
               onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = 'rgba(255,0,0,0.2)'; }}
@@ -90,13 +97,13 @@ export default function Footer() {
             >{label}</Link>
           ))}
           <div style={{ marginTop: 20 }}>
-            <a href="mailto:hospitalityheavens@gmail.com" style={{ fontFamily: 'Montserrat,sans-serif', fontSize: 11, color: 'rgba(255,255,255,0.45)', letterSpacing: 0.5, display: 'flex', alignItems: 'center', gap: 6, marginBottom: 8, textDecoration: 'none' }}>
-              <Mail size={12} /> hospitalityheavens@gmail.com
+            <a href={`mailto:${email}`} style={{ fontFamily: 'Montserrat,sans-serif', fontSize: 11, color: 'rgba(255,255,255,0.45)', letterSpacing: 0.5, display: 'flex', alignItems: 'center', gap: 6, marginBottom: 8, textDecoration: 'none' }}>
+              <Mail size={12} /> {email}
             </a>
-            <a href="https://wa.me/27763511196" target="_blank" rel="noopener" style={{ fontFamily: 'Montserrat,sans-serif', fontSize: 11, color: '#25D366', letterSpacing: 0.5, display: 'flex', alignItems: 'center', gap: 6, marginBottom: 8, textDecoration: 'none' }}>
+            <a href={`https://wa.me/${whatsapp}`} target="_blank" rel="noopener" style={{ fontFamily: 'Montserrat,sans-serif', fontSize: 11, color: '#25D366', letterSpacing: 0.5, display: 'flex', alignItems: 'center', gap: 6, marginBottom: 8, textDecoration: 'none' }}>
               <FaWhatsapp size={12} /> +27 763 511 196
             </a>
-            <a href="tel:+2349138688465" style={{ fontFamily: 'Montserrat,sans-serif', fontSize: 11, color: 'rgba(255,255,255,0.45)', letterSpacing: 0.5, display: 'flex', alignItems: 'center', gap: 6, textDecoration: 'none' }}>
+            <a href={`tel:${phone}`} style={{ fontFamily: 'Montserrat,sans-serif', fontSize: 11, color: 'rgba(255,255,255,0.45)', letterSpacing: 0.5, display: 'flex', alignItems: 'center', gap: 6, textDecoration: 'none' }}>
               <Phone size={12} /> +234 913 868 8465
             </a>
           </div>
@@ -106,9 +113,9 @@ export default function Footer() {
         <div>
           <h4 style={{ fontFamily: 'Montserrat,sans-serif', fontSize: 10, letterSpacing: 2.5, textTransform: 'uppercase', color: 'var(--orange)', marginBottom: 18 }}>Our Foundation</h4>
           <blockquote style={{ borderLeft: '2px solid rgba(232,76,14,0.5)', paddingLeft: 16, fontFamily: 'Cormorant Garamond,serif', fontStyle: 'italic', fontSize: 'clamp(14px,1.8vw,17px)', color: 'rgba(255,255,255,0.6)', lineHeight: 1.8 }}>
-            "For I was hungry and you gave me food, I was thirsty and you gave me drink, I was a stranger and you welcomed me."
+            {get('footer_scripture')}
           </blockquote>
-          <p style={{ fontFamily: 'Montserrat,sans-serif', fontSize: 10, color: 'var(--orange)', marginTop: 12, letterSpacing: 1 }}>Matthew 25:35</p>
+          <p style={{ fontFamily: 'Montserrat,sans-serif', fontSize: 10, color: 'var(--orange)', marginTop: 12, letterSpacing: 1 }}>{get('footer_scripture_ref')}</p>
         </div>
       </div>
 
