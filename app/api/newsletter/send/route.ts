@@ -20,7 +20,16 @@ export async function POST(req: NextRequest) {
   if (emails.length === 0) return NextResponse.json({ message: 'No subscribers' });
 
   const devotion = devotions[0];
-  await sendDevotionEmail(emails, devotion as any);
+  const result = await sendDevotionEmail(emails, devotion as any);
 
-  return NextResponse.json({ success: true, sent_to: emails.length });
+  if (result.errors.length) {
+    console.error('Devotion send errors:', result.errors);
+  }
+
+  return NextResponse.json({
+    success: result.failed === 0,
+    sent_to: result.sent,
+    failed: result.failed,
+    total: result.total,
+  });
 }
