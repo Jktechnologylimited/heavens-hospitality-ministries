@@ -11,6 +11,7 @@ interface Book {
 const DEFAULT: Book = {
   id: 0,
   title: 'In the Fullness of His Blessings',
+  slug: 'in-the-fullness-of-his-blessings',
   author: 'Evangelist Bob Edward',
   description: "Religion told Bob Edward that suffering was his lot. At 21, God showed him the truth. Your blessings are not on the way — they are already yours in Christ Jesus.",
   cover_url: '/images/book-cover.jpg',
