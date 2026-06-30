@@ -4,8 +4,8 @@ import Link from 'next/link';
 import { Download, BookOpen } from 'lucide-react';
 
 interface Book {
-  id: number; title: string; author: string; description: string;
-  cover_url: string; download_url: string; is_featured: boolean;
+  id: number; title: string; slug: string; author: string; description: string;
+  cover_url: string; cover_image: string | null; download_url: string; is_featured: boolean;
 }
 
 const DEFAULT: Book = {
@@ -14,9 +14,23 @@ const DEFAULT: Book = {
   author: 'Evangelist Bob Edward',
   description: "Religion told Bob Edward that suffering was his lot. At 21, God showed him the truth. Your blessings are not on the way — they are already yours in Christ Jesus.",
   cover_url: '/images/book-cover.jpg',
+  cover_image: null,
   download_url: '/book/in-the-fullness-of-his-blessings.pdf',
   is_featured: true,
 };
+
+function getBookCover(book: Book): string {
+  // Priority: uploaded image (base64) → external/path URL → local fallback
+  if (book.cover_image) return book.cover_image;
+  if (book.cover_url) return book.cover_url;
+  return '/images/book-cover.jpg';
+}
+
+function getLearnMoreHref(book: Book): string {
+  // Legacy first book uses the dedicated /book page; all new books use /books/[slug]
+  if (book.id === 0) return '/book';
+  return `/books/${book.slug}`;
+}
 
 export default function HomeBook() {
   const [book, setBook] = useState<Book>(DEFAULT);
@@ -32,6 +46,8 @@ export default function HomeBook() {
       .catch(() => {});
   }, []);
 
+  const coverSrc = getBookCover(book);
+  const learnMoreHref = getLearnMoreHref(book);
   const isExternal = book.download_url.startsWith('http');
 
   return (
@@ -50,7 +66,7 @@ export default function HomeBook() {
           <div style={{ position:'relative', width:'min(220px,55vw)' }}>
             <div style={{ borderRadius:8, overflow:'hidden', boxShadow:'10px 14px 40px rgba(0,0,0,0.6)', transform:'perspective(800px) rotateY(-4deg)' }}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={book.cover_url || '/images/book-cover.jpg'} alt={book.title}
+              <img src={coverSrc} alt={book.title}
                 style={{ width:'100%', display:'block' }}
                 onError={e => { (e.target as HTMLImageElement).src = '/images/book-cover.jpg'; }} />
             </div>
@@ -94,7 +110,7 @@ export default function HomeBook() {
               style={{ display:'inline-flex', alignItems:'center', gap:8, padding:'clamp(12px,2.5vw,15px) clamp(20px,4vw,32px)', fontSize:'clamp(11px,1.8vw,13px)' }}>
               <Download size={15} /> Download Free PDF
             </a>
-            <Link href="/book" className="btn-outline"
+            <Link href={learnMoreHref} className="btn-outline"
               style={{ display:'inline-flex', alignItems:'center', gap:8, padding:'clamp(11px,2.5vw,14px) clamp(18px,4vw,28px)', fontSize:'clamp(11px,1.8vw,13px)', color:'rgba(255,255,255,0.8)', borderColor:'rgba(255,255,255,0.3)' }}>
               <BookOpen size={15} /> Learn More
             </Link>

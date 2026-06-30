@@ -26,7 +26,7 @@ export default function Navbar() {
     { href: '/sermons', label: 'Sermons' },
     { href: '/events', label: 'Events' },
     { href: '/training', label: 'Free Training' },
-    { href: '/book', label: 'Free Book' },
+    { href: '/books', label: 'Books' },
     { href: '/#about', label: 'About' },
   ];
 

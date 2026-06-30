@@ -74,6 +74,29 @@ export async function initDB() {
     created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
   )`;
 
+  await sql`CREATE TABLE IF NOT EXISTS books (
+    id SERIAL PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    author VARCHAR(255) NOT NULL DEFAULT 'Evangelist Bob Edward',
+    description TEXT,
+    cover_url VARCHAR(500),
+    cover_image TEXT,
+    download_url VARCHAR(500) NOT NULL,
+    is_featured BOOLEAN DEFAULT false,
+    is_published BOOLEAN DEFAULT true,
+    sort_order INT DEFAULT 0,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+  )`;
+  // Migrate: add cover_image and slug columns if they don't exist
+  await sql`ALTER TABLE books ADD COLUMN IF NOT EXISTS cover_image TEXT`;
+  await sql`ALTER TABLE books ADD COLUMN IF NOT EXISTS slug VARCHAR(300)`;
+  // Back-fill slugs for any existing rows that don't have one
+  await sql`
+    UPDATE books SET slug = LOWER(REGEXP_REPLACE(REGEXP_REPLACE(title, '[^a-zA-Z0-9\s-]', '', 'g'), '\s+', '-', 'g'))
+    WHERE slug IS NULL OR slug = ''
+  `;
+
   await sql`CREATE TABLE IF NOT EXISTS offerings (
     id SERIAL PRIMARY KEY, donor_name VARCHAR(255), donor_email VARCHAR(255),
     amount NUMERIC(12,2) NOT NULL, currency VARCHAR(10) DEFAULT 'NGN',
