@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { Download, BookOpen } from 'lucide-react';
 
 interface Book {
-  id: number; title: string; slug: string; author: string; description: string;
+  id: number; title: string; slug: string | null; author: string; description: string;
   cover_url: string; cover_image: string | null; download_url: string;
   is_featured: boolean; isLegacy?: boolean;
 }
@@ -29,6 +29,12 @@ function getBookCover(b: Book): string {
   if (b.cover_image) return b.cover_image;
   if (b.cover_url) return b.cover_url;
   return '/images/book-cover.jpg';
+}
+
+function getHref(b: Book): string {
+  if (b.isLegacy) return '/book';
+  if (!b.slug) return '/books';
+  return `/books/${b.slug}`;
 }
 
 export default function BooksPage() {
@@ -122,7 +128,7 @@ export default function BooksPage() {
 
                         {/* Buttons stacked on mobile, side by side on desktop */}
                         <div style={{ display: 'flex', flexDirection: 'column', gap: 8, marginTop: 'auto' }}>
-                          <Link href={b.isLegacy ? '/book' : `/books/${b.slug}`}
+                          <Link href={getHref(b)}
                             className="btn-primary"
                             style={{ justifyContent: 'center', padding: 'clamp(9px,2vw,11px)', fontSize: 'clamp(10px,1.8vw,12px)', display: 'flex', alignItems: 'center', gap: 5 }}>
                             <BookOpen size={12} /> Learn More
